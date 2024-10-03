@@ -16,10 +16,9 @@ namespace Catalog.API.Products.CreateProduct
 
     public class CreateProductHandler : ICommandHandler<CreateProductCommand, CreateProductResult>
     {
-        public Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
+        public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
         {
             //Business logic will come here
-            //Automapp
             //Save to database
             //and RETURN CraeteProductResult
             var product = new Product
@@ -30,8 +29,9 @@ namespace Catalog.API.Products.CreateProduct
                 Name = command.Name,
                 Price = command.Price
             };
+            //To Do
             //save to database
-            throw new NotImplementedException();
+            return new CreateProductResult(Guid.NewGuid());
         }
     }
 }
