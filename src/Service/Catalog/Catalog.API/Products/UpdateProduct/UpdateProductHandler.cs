@@ -8,8 +8,7 @@ public record UpdateProductCommand(Guid Id,
         string ImageFile,
         decimal Price) : ICommand<UpdateProductResult>;
 public record UpdateProductResult(bool IsSuccessful);
-public class UpdateProductHandler(IDocumentSession session)
-    : ICommandHandler<UpdateProductCommand, UpdateProductResult>
+public class UpdateProductHandler(IDocumentSession session) : ICommandHandler<UpdateProductCommand, UpdateProductResult>
 {
     public async Task<UpdateProductResult> Handle(UpdateProductCommand command, CancellationToken cancellationToken)
     {
