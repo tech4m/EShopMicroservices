@@ -9,6 +9,7 @@ public class GetProductByCategoryEndpoint : ICarterModule
         {
             var result = await sender.Send(new GetProductByCategoryQuery(category));
             var response = result.Adapt<GetProductByCategoryResponse>();
+            return Results.Ok(response);
         })
         .WithName("GetProductByCategory")
         .Produces<GetProductByCategoryResponse>(StatusCodes.Status200OK)
