@@ -12,3 +12,6 @@ global using BuildingBlocks.Exceptions.Handler;
 global using FluentValidation;
 global using HealthChecks.UI.Client;
 global using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+global using BuildingBlocks.Messaging.MassTransit;
+global using Basket.API.Dtos;
+global using BuildingBlocks.Messaging.Events;

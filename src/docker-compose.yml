@@ -8,6 +8,15 @@ services:
   basketdb:
     image: postgres
 
+  messagebroker:
+    image: rabbitmq:management
+
+  distributedcache:
+    image: redis
+
+  orderdb:
+    image: mcr.microsoft.com/mssql/server
+
 volumes:
   postgres_catalog:
   postgres_basket:  

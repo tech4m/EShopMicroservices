@@ -1,7 +1,10 @@
 
 var builder = WebApplication.CreateBuilder(args);
+
 var assembly = typeof(Program).Assembly;
+
 builder.Services.AddCarter();
+
 builder.Services.AddMediatR(config =>
 {
     config.RegisterServicesFromAssemblies(assembly);
@@ -25,6 +28,9 @@ builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 builder.Services.AddHealthChecks()
     .AddNpgSql(builder.Configuration.GetConnectionString("Database")!);
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
+
+//RabbitMq
+builder.Services.AddMessageBroker(builder.Configuration);
 
 var app = builder.Build();
 

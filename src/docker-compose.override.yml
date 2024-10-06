@@ -1,6 +1,7 @@
 version: '3.4'
 
 services:
+
   catalogdb:
     container_name: catalogdb
     environment:
@@ -24,3 +25,29 @@ services:
         - "5433:5432"
     volumes:
       - postgres_basket:/var/lib/postgresql/data/ 
+
+  messagebroker:
+    container_name: messagebroker
+    hostname: ecommerce-mq
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672" 
+
+  distributedcache:
+    container_name: distributedcache
+    restart: always
+    ports:
+      - "6379:6379"
+
+  orderdb:
+    container_name: orderdb
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=SwN12345678
+    restart: always
+    ports:
+      - "1433:1433" 
