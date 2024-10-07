@@ -8,14 +8,14 @@ services:
   basketdb:
     image: postgres
 
+  orderdb:
+    image: mcr.microsoft.com/mssql/server
+
   messagebroker:
     image: rabbitmq:management
 
   distributedcache:
-    image: redis
-
-  orderdb:
-    image: mcr.microsoft.com/mssql/server
+    image: redis 
 
 volumes:
   postgres_catalog:
