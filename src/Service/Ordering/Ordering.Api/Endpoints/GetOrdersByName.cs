@@ -1,6 +1,4 @@
-﻿
-using MediatR;
-using Ordering.Application.Orders.Queries.GetOrdersByName;
+﻿using Ordering.Application.Orders.Queries.GetOrdersByName;
 
 namespace Ordering.Api.Endpoints;
 

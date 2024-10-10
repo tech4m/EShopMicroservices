@@ -1,7 +1,4 @@
-﻿
-using Mapster;
-using MediatR;
-using Ordering.Application.Orders.Commands.DeleteOrder;
+﻿using Ordering.Application.Orders.Commands.DeleteOrder;
 
 namespace Ordering.Api.Endpoints;
 

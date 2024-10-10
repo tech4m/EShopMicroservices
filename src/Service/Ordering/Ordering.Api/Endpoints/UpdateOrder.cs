@@ -1,7 +1,4 @@
-﻿
-using Mapster;
-using MediatR;
-using Ordering.Application.Orders.Commands.UpdateOrder;
+﻿using Ordering.Application.Orders.Commands.UpdateOrder;
 
 namespace Ordering.Api.Endpoints;
 

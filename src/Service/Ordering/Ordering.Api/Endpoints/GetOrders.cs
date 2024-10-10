@@ -1,7 +1,5 @@
 ﻿
 using BuildingBlocks.Pagination;
-using Mapster;
-using MediatR;
 using Ordering.Application.Orders.Queries.GetOrders;
 
 namespace Ordering.Api.Endpoints;

@@ -9,8 +9,9 @@ public class GetOrdersHandler(IApplicationDbContext dbContext) : IQueryHandler<G
         var totalCount = await dbContext.Orders.LongCountAsync(cancellationToken);
         var result = await dbContext.Orders
                     .Include(o => o.OrderItems)
-
-
+                    .OrderBy(p=>p.OrderName.Value)
+                    .Skip(pageSize*pageIndex)
+                    .Take(pageSize)
                     .ToListAsync(cancellationToken);
 
         return new GetOrdersResult(new PaginatedResult<OrderDto>(pageIndex, pageSize, totalCount, result.ToOrderDtoList()));

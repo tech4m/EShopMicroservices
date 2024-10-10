@@ -9,7 +9,9 @@ public static class DependencyInjection
     {
         services.AddCarter();
         services.AddExceptionHandler<CustomExceptionHandler>();
-
+        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+        services.AddEndpointsApiExplorer();
+        services.AddSwaggerGen();
         services.AddHealthChecks()
             .AddSqlServer(configuration.GetConnectionString("Database")!);
 
@@ -21,6 +23,7 @@ public static class DependencyInjection
     {
         app.MapCarter();
         app.UseExceptionHandler(options => { });
+        app.UseApiServices(); 
         app.UseHealthChecks("/health",
             new HealthCheckOptions
             {

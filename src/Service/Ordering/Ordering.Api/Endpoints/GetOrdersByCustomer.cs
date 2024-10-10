@@ -1,7 +1,4 @@
-﻿
-using Mapster;
-using MediatR;
-using Ordering.Application.Orders.Queries.GetOrdersByCustomer;
+﻿using Ordering.Application.Orders.Queries.GetOrdersByCustomer;
 
 namespace Ordering.Api.Endpoints;
 
