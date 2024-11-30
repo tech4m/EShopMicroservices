@@ -15,8 +15,30 @@ services:
     image: rabbitmq:management
 
   distributedcache:
-    image: redis 
+    image: redis   
+      
+  catalog.api:
+    image: ${DOCKER_REGISTRY-}catalogapi
+    build:
+      context: .
+      dockerfile: Service/Catalog/Catalog.API/Dockerfile
+
+  basket.api:
+    image: ${DOCKER_REGISTRY-}basketapi
+    build:
+      context: .
+      dockerfile: Service/Basket/Basket.API/Dockerfile
+
+  ordering.api:
+    image: ${DOCKER_REGISTRY-}orderingapi
+    build:
+      context: .
+      dockerfile: Service/Ordering/Ordering.Api/Dockerfile
 
 volumes:
   postgres_catalog:
   postgres_basket:  
+
+  
+
+

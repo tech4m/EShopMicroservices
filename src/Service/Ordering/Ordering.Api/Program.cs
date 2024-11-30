@@ -8,15 +8,13 @@ using Ordering.Infrastructure.Data.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container. 
-builder.Services.AddCarter();
+// Add services to the container.  
 builder.Services
     .AddApplicationServices(builder.Configuration)
     .AddInfrastructureServices(builder.Configuration)
     .AddApiServices(builder.Configuration);
 
-var app = builder.Build();
-app.MapCarter();
+var app = builder.Build(); 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -24,6 +22,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
     await app.InitialiseDatabaseAsync();
 }
-
+app.UseApiServices();
 app.UseHttpsRedirection();
 app.Run();
