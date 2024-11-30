@@ -10,6 +10,11 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Service/Ordering/Ordering.Api/Ordering.Api.csproj", "Service/Ordering/Ordering.Api/"]
+COPY ["Service/Ordering/Ordering.Application/Ordering.Application.csproj", "Service/Ordering/Ordering.Application/"]
+COPY ["BuildingBlocks/BuildingBlocks.Messaging/BuildingBlocks.Messaging.csproj", "BuildingBlocks/BuildingBlocks.Messaging/"]
+COPY ["BuildingBlocks/BuildingBlocks/BuildingBlocks.csproj", "BuildingBlocks/BuildingBlocks/"]
+COPY ["Service/Ordering/Ordering.Domain/Ordering.Domain.csproj", "Service/Ordering/Ordering.Domain/"]
+COPY ["Service/Ordering/Ordering.Infrastructure/Ordering.Infrastructure.csproj", "Service/Ordering/Ordering.Infrastructure/"]
 RUN dotnet restore "./Service/Ordering/Ordering.Api/Ordering.Api.csproj"
 COPY . .
 WORKDIR "/src/Service/Ordering/Ordering.Api"
